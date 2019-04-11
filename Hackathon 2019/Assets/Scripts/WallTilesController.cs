@@ -14,6 +14,12 @@ public class WallTilesController : MonoBehaviour {
 	
 	public bool IsCellSolid(int x, int y){
 		Tile t = (Tile)walls.GetTile (new Vector3Int (x, y, 0));
-		return t != null;
+		Collider2D c = Physics2D.OverlapPoint (new Vector2 (x + 0.5f, y + 0.5f));
+		
+		if(c != null){
+			Debug.LogFormat ("collider {0}", c.gameObject.name);
+		}
+		bool doorCollision = (c != null && c.gameObject.name == "Door");
+		return t != null || doorCollision;
 	}
 }

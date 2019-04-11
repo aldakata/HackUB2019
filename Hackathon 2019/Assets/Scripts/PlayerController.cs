@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour, ObjectController {
 			case Direction.UP:
 
 				y = y + speed * Time.deltaTime;
-				Debug.LogFormat ("current pos: {0}, dest pos: {1}", y, destCell.y + 0.5f);
+				//Debug.LogFormat ("current pos: {0}, dest pos: {1}", y, destCell.y + 0.5f);
 				if (y < destCell.y + 0.5f) transform.position = new Vector3 (x, y, 0.0f);
 				else {
 					transform.position = new Vector3(x, destCell.y + 0.5f, 0.0f);
@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour, ObjectController {
 
 			case Direction.DOWN:
 				y = y - speed * Time.deltaTime;
-				Debug.LogFormat ("current pos: {0}, dest pos: {1}", y, destCell.y + 0.5f);
+				//Debug.LogFormat ("current pos: {0}, dest pos: {1}", y, destCell.y + 0.5f);
 				if (y > destCell.y + 0.5f) transform.position = new Vector3 (x, y, 0.0f);
 				else {
 					transform.position = new Vector3(x, destCell.y + 0.5f, 0.0f);

@@ -19,12 +19,13 @@ public class DoorController : MonoBehaviour {
 		if (isOpen) {
 
 			this.gameObject.GetComponent<SpriteRenderer>().sprite = openedDoor; //Change sprite to open door
-			this.gameObject.GetComponent<BoxCollider2D>().isTrigger = true; //Change collider to trigger
+			this.gameObject.GetComponent<BoxCollider2D> ().enabled = false;
+			
 
 		} else {
 		
 			this.gameObject.GetComponent<SpriteRenderer>().sprite = closedDoor; //Change sprite to closed door
-			this.gameObject.GetComponent<BoxCollider2D>().isTrigger = false; //Set collider to normal
+			this.gameObject.GetComponent<BoxCollider2D> ().enabled = true;
 		}
 
 	}

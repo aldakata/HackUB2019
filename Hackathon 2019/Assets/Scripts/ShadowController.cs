@@ -109,7 +109,8 @@ public class ShadowController : MonoBehaviour, ObjectController {
 				break;
 				case 4:
 				ended = true;
-				gameObject.SetActive (false);
+				transform.position = new Vector3 (100.0f, 0.0f, 0.0f);
+				//gameObject.SetActive (false);
 				break;
 				
 			}
