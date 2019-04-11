@@ -19,7 +19,7 @@ public class SusanController : MonoBehaviour {
 		anim = GetComponent<Animator> ();
 		btnA1 = GameObject.Find ("A1");
 		btnR = GameObject.Find ("R");
-		btnUp = = GameObject.Find ("UP");
+		btnUp = GameObject.Find ("UP");
 		btnDown = GameObject.Find ("DOWN");
 		btnLeft = GameObject.Find ("LEFT");
 		btnRight = GameObject.Find ("RIGHT");
