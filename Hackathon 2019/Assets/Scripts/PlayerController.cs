@@ -52,6 +52,9 @@ public class PlayerController : MonoBehaviour, ObjectController {
 	
 	// Update is called once per frame
 	void Update () {
+		
+		
+		
 		time += Time.deltaTime; 
 		if(movingDir != Direction.NULL){
 			//Debug.Log ("moving");
@@ -98,6 +101,9 @@ public class PlayerController : MonoBehaviour, ObjectController {
 				}
 				break;
 			}
+		}else{
+			Collider2D c = Physics2D.OverlapPoint (new Vector2 (transform.position.x, transform.position.y));
+			if (c != null && c.name == "Door") lvlC.ResetLevel ();
 		}
 	}
 	
@@ -159,7 +165,12 @@ public class PlayerController : MonoBehaviour, ObjectController {
 			actionq.Add (new Action (4, time));
 			lvlC.BanishPlayer (actionq, initialPos);
 			break;
+		case "R":
+			lvlC.ResetLevel ();
+			break;
 		}
+		
+		
 	}
 	
 	public void Reset(){

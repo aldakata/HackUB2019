@@ -11,7 +11,7 @@ public class LevelController : MonoBehaviour {
 	ObjectController [] objects;
 	
 	PlayerController player;
-	List<ObjectController> shadows;
+	List<ShadowController> shadows;
 	public GameObject playerShadow;
 	// Use this for initialization
 	void Start () {
@@ -22,7 +22,7 @@ public class LevelController : MonoBehaviour {
 		for (int i = 0; i < o.Length; i++){
 			objects [i] = o [i].GetComponent<ObjectController> ();
 		}
-		shadows = new List<ObjectController> ();
+		shadows = new List<ShadowController> ();
 	}
 	
 	// Update is called once per frame
@@ -35,11 +35,23 @@ public class LevelController : MonoBehaviour {
 		for (int i = 0; i < objects.Length; i++){
 			objects [i].Reset ();
 		}
-		foreach(ObjectController shadow in shadows){
+		foreach(ShadowController shadow in shadows){
 			shadow.Reset ();
 		}
 		GameObject newShadow = Instantiate (playerShadow, pos, Quaternion.identity);
 		newShadow.GetComponent<ShadowController> ().SetActionList (actionq);
-		shadows.Add (newShadow.GetComponent<ObjectController> ());
+		shadows.Add (newShadow.GetComponent<ShadowController> ());
+	}
+	
+	public void ResetLevel(){
+		player.Reset ();
+		for (int i = 0; i < objects.Length; i++){
+			objects [i].Reset ();
+		}
+		
+		foreach(ShadowController shadow in shadows){
+			Destroy (shadow.gameObject);
+		}
+		shadows.Clear ();
 	}
 }
