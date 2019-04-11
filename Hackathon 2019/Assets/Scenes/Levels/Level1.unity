@@ -275,32 +275,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 212690325260768526, guid: 7cc6c649924db42749ba25e91d51d926,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212690325260768526, guid: 7cc6c649924db42749ba25e91d51d926,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 3e0e6b40ace5c43c4bb42286f45e6c9f,
-        type: 3}
-    - target: {fileID: 212690325260768526, guid: 7cc6c649924db42749ba25e91d51d926,
-        type: 2}
-      propertyPath: m_Size.x
-      value: 0.875
-      objectReference: {fileID: 0}
-    - target: {fileID: 212690325260768526, guid: 7cc6c649924db42749ba25e91d51d926,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 1.9375
-      objectReference: {fileID: 0}
-    - target: {fileID: 212690325260768526, guid: 7cc6c649924db42749ba25e91d51d926,
-        type: 2}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 114955395160586628, guid: 7cc6c649924db42749ba25e91d51d926,
         type: 2}
       propertyPath: wallTiles
