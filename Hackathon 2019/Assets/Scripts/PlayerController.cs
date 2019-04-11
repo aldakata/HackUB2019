@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour, ObjectController {
 		actionq = new List<Action> ();
 		time = 0;
 		initialPos = transform.position;
-		lvlC = GetComponent<LevelController> ();
+		lvlC = Object.FindObjectOfType<LevelController> ();
 		anim = GetComponent<Animator> ();
 		anim.SetBool ("Moving", false);
 		sr = GetComponent<SpriteRenderer> ();
@@ -156,14 +156,8 @@ public class PlayerController : MonoBehaviour, ObjectController {
 		}
 		break;
 		case "A1":
-			//interactableObject.GetComponent<Interactable> ().Interaction ();
-			//actionq.Add (new Action (4, time));
-			anim.SetBool ("Moving", true);
-			break;
-		case "A2":
-			//actionq.Add (new Action (5, time));
-			//lvlC.BanishPlayer (actionq, initialPos);
-			anim.SetBool ("Moving", false);
+			actionq.Add (new Action (4, time));
+			lvlC.BanishPlayer (actionq, initialPos);
 			break;
 		}
 	}

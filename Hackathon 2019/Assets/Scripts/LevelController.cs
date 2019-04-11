@@ -9,11 +9,15 @@ public interface ObjectController{
 public class LevelController : MonoBehaviour {
 
 	ObjectController [] objects;
+	
+	PlayerController player;
 	List<ObjectController> shadows;
 	public GameObject playerShadow;
 	// Use this for initialization
 	void Start () {
-		GameObject[] o = GameObject.FindGameObjectsWithTag ("levelObject");
+		player = Object.FindObjectOfType<PlayerController> ();
+		GameObject[] o = GameObject.FindGameObjectsWithTag ("LevelObject");
+		Debug.LogFormat ("Level objects size> {0}", o.Length);
 		objects = new ObjectController [o.Length];
 		for (int i = 0; i < o.Length; i++){
 			objects [i] = o [i].GetComponent<ObjectController> ();
@@ -27,6 +31,7 @@ public class LevelController : MonoBehaviour {
 	}
 	
 	public void BanishPlayer(List<Action> actionq, Vector3 pos){
+		player.Reset ();
 		for (int i = 0; i < objects.Length; i++){
 			objects [i].Reset ();
 		}

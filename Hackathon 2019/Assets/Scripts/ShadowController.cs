@@ -107,11 +107,7 @@ public class ShadowController : MonoBehaviour, ObjectController {
 				movingDir = Direction.RIGHT;
 				destCell.x++;
 				break;
-				
 				case 4:
-				//Interaction
-				break;
-				case 5:
 				ended = true;
 				gameObject.SetActive (false);
 				break;
