@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class TouchListener : MonoBehaviour {
 
-	public GameObject player;
 	PlayerController playerc;
 	// Use this for initialization
 	void Start () {
-		playerc = player.GetComponent<PlayerController> ();
+		playerc = Object.FindObjectOfType<PlayerController> ();
 	}
 	
 	// Update is called once per frame
@@ -17,6 +16,6 @@ public class TouchListener : MonoBehaviour {
 	}
 	
 	void OnMouseDown(){
-		playerc.DoAction (transform.name); 
+		playerc.DoAction (transform.name);
 	}
 }
