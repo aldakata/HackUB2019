@@ -163,7 +163,7 @@ public class PlayerController : MonoBehaviour, ObjectController {
 		break;
 		case "A1":
 			actionq.Add (new Action (4, time));
-			lvlC.BanishPlayer (actionq, initialPos);
+			anim.SetBool ("Travel", true);
 			break;
 		case "R":
 			lvlC.ResetLevel ();
@@ -173,7 +173,13 @@ public class PlayerController : MonoBehaviour, ObjectController {
 		
 	}
 	
+    public void Banish(){
+    	lvlC.BanishPlayer (actionq, initialPos);
+		anim.SetBool ("Travel", false);
+    }
+	
 	public void Reset(){
+		
 		transform.position = initialPos;
 		movingDir = Direction.NULL;
 		destCell = new Vector2Int (Mathf.FloorToInt(transform.position.x), Mathf.FloorToInt(transform.position.y));

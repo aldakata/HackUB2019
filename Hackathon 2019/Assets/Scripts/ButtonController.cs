@@ -6,14 +6,18 @@ public class ButtonController : MonoBehaviour {
 
 	public Sprite pressedPlate;
 	public Sprite normalPlate;
-	public GameObject door;
-	private DoorController dController;
+	public GameObject[] door;
+	private DoorController[] dController;
 	public int isPressed = 0;
 
 	// Use this for initialization
 	void Start () {
 		this.gameObject.GetComponent<SpriteRenderer>().sprite = normalPlate;
-		dController = door.GetComponent<DoorController> ();
+		dController = new DoorController [door.Length];
+		for (int i = 0; i < door.Length; i++){
+			dController[i] = door[i].GetComponent<DoorController> ();
+		}
+		
 	}
 
 	//sets isPressed to true when pressed
@@ -21,7 +25,7 @@ public class ButtonController : MonoBehaviour {
 		Debug.Log ("Test");
 		gameObject.GetComponent<SpriteRenderer> ().sprite = pressedPlate;
 		isPressed++;
-		dController.setDoorState (true);
+		foreach(DoorController dc in dController)dc.SwitchState ();
 	}
 
 	void OnTriggerExit2D(Collider2D col){
@@ -29,7 +33,7 @@ public class ButtonController : MonoBehaviour {
 		if (isPressed <= 0) {
 		
 			gameObject.GetComponent<SpriteRenderer> ().sprite = normalPlate;
-			dController.setDoorState (false);
+			foreach(DoorController dc in dController)dc.SwitchState ();
 		}
 	}
 }

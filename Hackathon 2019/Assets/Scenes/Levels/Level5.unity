@@ -162,6 +162,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114731053272200596, guid: b1e85419100864d039940a072e95e4bb,
+        type: 2}
+      propertyPath: nextlvl_name
+      value: Level6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b1e85419100864d039940a072e95e4bb, type: 2}
   m_IsPrefabParent: 0
@@ -3573,6 +3578,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114843844297420564, guid: 0d297e9bab26c42a8ba6a358e879e9be,
+        type: 2}
+      propertyPath: door.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4002203848224546, guid: 0d297e9bab26c42a8ba6a358e879e9be, type: 2}
       propertyPath: m_LocalPosition.x
       value: -6.5
@@ -3609,11 +3619,16 @@ Prefab:
         type: 2}
       propertyPath: door
       value: 
-      objectReference: {fileID: 158386587}
+      objectReference: {fileID: 0}
     - target: {fileID: 1282410866147890, guid: 0d297e9bab26c42a8ba6a358e879e9be, type: 2}
       propertyPath: m_Name
       value: Button (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114843844297420564, guid: 0d297e9bab26c42a8ba6a358e879e9be,
+        type: 2}
+      propertyPath: door.Array.data[0]
+      value: 
+      objectReference: {fileID: 158386587}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0d297e9bab26c42a8ba6a358e879e9be, type: 2}
   m_IsPrefabParent: 0
@@ -3624,6 +3639,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114843844297420564, guid: 0d297e9bab26c42a8ba6a358e879e9be,
+        type: 2}
+      propertyPath: door.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4002203848224546, guid: 0d297e9bab26c42a8ba6a358e879e9be, type: 2}
       propertyPath: m_LocalPosition.x
       value: 6.5
@@ -3660,11 +3680,16 @@ Prefab:
         type: 2}
       propertyPath: door
       value: 
-      objectReference: {fileID: 34676139}
+      objectReference: {fileID: 0}
     - target: {fileID: 1282410866147890, guid: 0d297e9bab26c42a8ba6a358e879e9be, type: 2}
       propertyPath: m_Name
       value: Button (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 114843844297420564, guid: 0d297e9bab26c42a8ba6a358e879e9be,
+        type: 2}
+      propertyPath: door.Array.data[0]
+      value: 
+      objectReference: {fileID: 34676139}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0d297e9bab26c42a8ba6a358e879e9be, type: 2}
   m_IsPrefabParent: 0
@@ -3802,6 +3827,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114843844297420564, guid: 0d297e9bab26c42a8ba6a358e879e9be,
+        type: 2}
+      propertyPath: door.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4002203848224546, guid: 0d297e9bab26c42a8ba6a358e879e9be, type: 2}
       propertyPath: m_LocalPosition.x
       value: -3.5
@@ -3838,6 +3868,11 @@ Prefab:
         type: 2}
       propertyPath: door
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114843844297420564, guid: 0d297e9bab26c42a8ba6a358e879e9be,
+        type: 2}
+      propertyPath: door.Array.data[0]
+      value: 
       objectReference: {fileID: 966530279}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0d297e9bab26c42a8ba6a358e879e9be, type: 2}
@@ -3851,7 +3886,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4740968295034428, guid: 46f886b8fd12b426b85f8b37fea59f32, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -6.84
+      value: -12
       objectReference: {fileID: 0}
     - target: {fileID: 4740968295034428, guid: 46f886b8fd12b426b85f8b37fea59f32, type: 2}
       propertyPath: m_LocalPosition.y

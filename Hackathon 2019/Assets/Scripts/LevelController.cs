@@ -38,9 +38,12 @@ public class LevelController : MonoBehaviour {
 		foreach(ShadowController shadow in shadows){
 			shadow.Reset ();
 		}
-		GameObject newShadow = Instantiate (playerShadow, pos, Quaternion.identity);
-		newShadow.GetComponent<ShadowController> ().SetActionList (actionq);
-		shadows.Add (newShadow.GetComponent<ShadowController> ());
+		if (actionq.Count > 0) {
+			GameObject newShadow = Instantiate (playerShadow, pos, Quaternion.identity);
+			newShadow.GetComponent<ShadowController> ().SetActionList (actionq);
+			shadows.Add (newShadow.GetComponent<ShadowController> ());
+		}
+		Debug.Log ("Banish Player");
 	}
 	
 	public void ResetLevel(){
@@ -50,8 +53,11 @@ public class LevelController : MonoBehaviour {
 		}
 		
 		foreach(ShadowController shadow in shadows){
-			Destroy (shadow.gameObject);
+			shadow.Reset ();
+			shadow.gameObject.SetActive (false);
+			//Destroy (shadow.gameObject);
 		}
 		shadows.Clear ();
+		Debug.Log ("Reset Level");
 	}
 }

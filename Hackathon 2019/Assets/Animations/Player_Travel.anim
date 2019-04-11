@@ -98,4 +98,12 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 1.1
+    functionName: Banish
+    data: 
+    objectReferenceParameter: {fileID: 1728125811977382, guid: 7cc6c649924db42749ba25e91d51d926,
+      type: 2}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
