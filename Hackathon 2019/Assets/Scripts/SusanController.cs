@@ -35,6 +35,10 @@ public class SusanController : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D col) {
 		Debug.Log ("Test");
 		anim.SetBool ("End", true);
+		btnUp.SetActive (false);
+		btnDown.SetActive (false);
+		btnLeft.SetActive (false);
+		btnRight.SetActive (false);
 		StartCoroutine (EndRoutine ());
 	}
 
@@ -47,10 +51,6 @@ public class SusanController : MonoBehaviour {
 		}
 		Debug.Log ("Finish");
 		this.transform.position = new Vector3(0, 100, 0);
-		btnUp.SetActive (false);
-		btnDown.SetActive (false);
-		btnLeft.SetActive (false);
-		btnRight.SetActive (false);
 		btnA1.SetActive (true);
 	}
 }
