@@ -25,7 +25,7 @@ public class ButtonController : MonoBehaviour {
 		Debug.Log ("Test");
 		gameObject.GetComponent<SpriteRenderer> ().sprite = pressedPlate;
 		isPressed++;
-		foreach(DoorController dc in dController)dc.SwitchState ();
+		foreach(DoorController dc in dController)dc.SwitchState (true);
 	}
 
 	void OnTriggerExit2D(Collider2D col){
@@ -33,7 +33,7 @@ public class ButtonController : MonoBehaviour {
 		if (isPressed <= 0) {
 		
 			gameObject.GetComponent<SpriteRenderer> ().sprite = normalPlate;
-			foreach(DoorController dc in dController)dc.SwitchState ();
+			foreach(DoorController dc in dController)dc.SwitchState (false);
 		}
 	}
 }
