@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonController : MonoBehaviour {
+public class ExitController : MonoBehaviour {
 
-	public GameObject door;
-	private DoorController doorc;
 	// Use this for initialization
 	void Start () {
 		
@@ -14,5 +12,11 @@ public class ButtonController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	//sets isPressed to true when pressed
+	void OnTriggerEnter2D(Collider2D col) {
+		Debug.Log ("Next Level");
+		//SceneManager.LoadScene("name")
 	}
 }

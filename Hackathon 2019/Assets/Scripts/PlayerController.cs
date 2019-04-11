@@ -19,12 +19,15 @@ public class Action{
 
 public class PlayerController : MonoBehaviour, ObjectController {
 
+	Animator anim;
 	public float speed = 1;
 	private Direction movingDir;
 	private Vector2Int destCell;
 	public GameObject wallTiles;
 	private WallTilesController wc;
 	LevelController lvlC;
+	SpriteRenderer sr;
+	int lookDir;
 
 	private Vector3 initialPos;
 
@@ -41,6 +44,10 @@ public class PlayerController : MonoBehaviour, ObjectController {
 		time = 0;
 		initialPos = transform.position;
 		lvlC = GetComponent<LevelController> ();
+		anim = GetComponent<Animator> ();
+		anim.SetBool ("Moving", false);
+		sr = GetComponent<SpriteRenderer> ();
+		lookDir = 0;
 	}
 	
 	// Update is called once per frame
@@ -59,7 +66,7 @@ public class PlayerController : MonoBehaviour, ObjectController {
 				if (y < destCell.y + 0.5f) transform.position = new Vector3 (x, y, 0.0f);
 				else {
 					transform.position = new Vector3(x, destCell.y + 0.5f, 0.0f);
-					movingDir = Direction.NULL;
+					StopMovement ();
 				}
 				break;
 
@@ -69,7 +76,7 @@ public class PlayerController : MonoBehaviour, ObjectController {
 				if (y > destCell.y + 0.5f) transform.position = new Vector3 (x, y, 0.0f);
 				else {
 					transform.position = new Vector3(x, destCell.y + 0.5f, 0.0f);
-					movingDir = Direction.NULL;
+					StopMovement ();
 				}
 				break;
 
@@ -78,7 +85,7 @@ public class PlayerController : MonoBehaviour, ObjectController {
 				if (x > destCell.x + 0.5f) transform.position = new Vector3 (x, y, 0.0f);
 				else {
 					transform.position = new Vector3(destCell.x + 0.5f, y, 0.0f);
-					movingDir = Direction.NULL;
+					StopMovement ();
 				}
 				break;
 				
@@ -87,11 +94,17 @@ public class PlayerController : MonoBehaviour, ObjectController {
 				if (x < destCell.x + 0.5f) transform.position = new Vector3 (x, y, 0.0f);
 				else {
 					transform.position = new Vector3(destCell.x + 0.5f, y, 0.0f);
-					movingDir = Direction.NULL;
+					StopMovement ();
 				}
 				break;
 			}
 		}
+	}
+	
+	void StopMovement(){
+		movingDir = Direction.NULL;
+		anim.SetBool ("Moving", false);
+		Debug.Log ("Stop Movement");
 	}
 	
 	public void DoAction(string ia){
@@ -102,6 +115,8 @@ public class PlayerController : MonoBehaviour, ObjectController {
 			movingDir = Direction.UP;
 			destCell.y++;
 			actionq.Add (new Action (0, time));
+			anim.SetBool ("Moving", true);
+			Debug.Log ("Start Movement");
 		}
 		break;
 		case "DOWN":
@@ -109,6 +124,8 @@ public class PlayerController : MonoBehaviour, ObjectController {
 			movingDir = Direction.DOWN;
 			destCell.y--;
 			actionq.Add (new Action (1, time));
+			anim.SetBool ("Moving", true);
+			Debug.Log ("Start Movement");
 		}
 		break;
 		case "LEFT":
@@ -116,6 +133,13 @@ public class PlayerController : MonoBehaviour, ObjectController {
 			movingDir = Direction.LEFT;
 			destCell.x--;
 			actionq.Add (new Action (2, time));
+			anim.SetBool ("Moving", true);
+			Debug.Log ("Start Movement");
+			if(lookDir == 0){
+					lookDir = 1;
+					sr.flipX = true;
+			}
+			
 		}
 		break;
 		case "RIGHT":
@@ -123,15 +147,23 @@ public class PlayerController : MonoBehaviour, ObjectController {
 			movingDir = Direction.RIGHT;
 			destCell.x++;
 			actionq.Add (new Action (3, time));
+			anim.SetBool ("Moving", true);
+			Debug.Log ("Start Movement");
+			if(lookDir == 1){
+					lookDir = 0;
+					sr.flipX = false;
+			}
 		}
 		break;
 		case "A1":
 			//interactableObject.GetComponent<Interactable> ().Interaction ();
-			actionq.Add (new Action (4, time));
+			//actionq.Add (new Action (4, time));
+			anim.SetBool ("Moving", true);
 			break;
 		case "A2":
-			actionq.Add (new Action (5, time));
-			lvlC.BanishPlayer (actionq, initialPos);
+			//actionq.Add (new Action (5, time));
+			//lvlC.BanishPlayer (actionq, initialPos);
+			anim.SetBool ("Moving", false);
 			break;
 		}
 	}
