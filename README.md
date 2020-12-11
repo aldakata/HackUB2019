@@ -1,2 +1,4 @@
 # HackUB2019
-UB's game from team maet
+Hack-A-Game 2019 UB winners.
+
+Team: @Daver35 @Eudaldz @gmolinga
